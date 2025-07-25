@@ -1,0 +1,150 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    background-color: var(--primary-bg);
+}
+
+:root{
+    --primary-bg:#E3E9FF;
+    --primary-text:#333;
+    
+    --secondary-bg:#AF7EEA;
+    --secondary-text:#ffffff;
+}
+
+header{
+    width: 100%;
+        background: var(--secondary-bg);
+        margin-bottom: 2rem;
+        display: flex;
+        /* Make header a flex container */
+        justify-content: center;
+        /* Center its content (the navbar) horizontally */
+        align-items: center;
+        /* Center its content (the navbar) vertically if header has height */
+        height: 5rem;
+        /* Give header a defined height for better centering control if needed */
+        padding: 0 1rem;
+}
+
+.navbar{
+    max-width: 1200px;
+    height: 3rem;
+    background: var(--secondary-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-text);
+    padding: 2rem;
+}
+
+h1{
+    background-color: var(--secondary-bg);
+    letter-spacing: 0.2rem;
+}
+
+main{
+    /* height: 100vh; */
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+.container{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.upCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 15rem;
+    min-width: 20rem;
+    background-color: var(--secondary-text);
+    border-radius: 8%;
+}
+
+.card h3{
+    background-color: transparent;
+    font-size: 1.5rem;
+    color:var(--primary-text);
+    padding:0.5rem 0.5rem 0rem 0.5rem;
+    border-bottom: solid#333;
+    margin-bottom: 0.5rem;
+}
+.infoDiv{
+    background-color: transparent;
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+.infos{
+    background-color: transparent;
+    display: flex;
+    font-size: 1.1rem;
+}
+.infos div {
+    background-color: var(--secondary-text);
+}
+
+.ntbutton{
+    transform: translateY(-1rem);
+    height: 2.5rem;
+    width: 10rem;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 2rem;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); */
+    text-decoration: none;
+}
+
+
+
+.btn{
+    background-color: var(--secondary-bg);
+    color: #ffffff;
+    font-weight: bold;
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    width: 10rem;
+    border: none;
+    transition: 0.3s ease;
+}
+.btn:hover{
+    cursor: pointer;
+    transform: translateY(-0.2rem);
+    background-color: #ae6bff;
+}
+
+.btn i{
+    background-color: transparent;
+    font-size: 1.2rem;
+}
+
+/* NEW TASKS */
+
+.tottasks{
+    display: flex;
+    flex-direction: column;
+}
+
+.task{
+    display: grid;
+    grid-template-columns:1fr 4fr 1fr;
+}

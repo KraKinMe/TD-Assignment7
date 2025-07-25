@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <h1>TODO APP</h1>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="upCard">
+          <div class="card">
+            <h3>TASKS</h3>
+            <div class="infoDiv">
+              <div class="infos">
+                <div class="infos-title">TOTAL TASK:</div>
+                <div class="tt" id="ttno">0</div>
+              </div>
+              <div class="infos">
+                <div class="infos-title">DONE TASK:</div>
+                <div class="dt" id="dtno">0</div>
+              </div>
+            </div>
+            <div class="tottasks"></div>
+          </div>
+          <div class="ntbutton">
+            <button class="btn" id="nt">
+              <i class="fa-solid fa-plus"></i>NEW TASK
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <script src="./script.js"></script>
+</html>
