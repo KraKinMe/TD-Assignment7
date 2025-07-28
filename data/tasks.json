@@ -2,7 +2,8 @@
     "tasks":[
         {
             "id":"1",
-            "task":"Wake Up",
+            "taskTitle":"Wake Up",
+            "taskDesc":"Wake up at 6 AM",
             "done":false
         }
     ]

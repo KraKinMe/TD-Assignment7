@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <h1>TODO APP</h1>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="upCard">
+          <div class="card">
+            <h3>ADD TASK</h3>
+            <form action="/" method="post">
+              <div class="form-entry">
+                <label for="TN">Task Name:</label>
+                <input type="text" name="TN" id="TN" />
+              </div>
+              <div class="form-entry">
+                <label for="TD">Describe Task:</label>
+                <textarea name="TD" id="TD" rows="5" cols="40"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="ntbutton">
+            <button class="btn" id="nt">SAVE TASK</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <script src="./addscript.js"></script>
+</html>

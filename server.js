@@ -3,6 +3,7 @@ const path=require('path');
 const app = express();
 
 const PORT = 3000; // Define your port
+let {tasks}=require('./data/tasks.json');
 
 app.use(express.static(path.join(__dirname,'public')));
 
@@ -12,6 +13,10 @@ app.get('/', (req, res) => {
     // res.send('Hello from your Express server!');
     res.sendFile(path.join(__dirname,'public','index.html')); 
 });
+
+
+const addRoutes=require('./Routes/add.js');
+app.use('/add',addRoutes);
 
 // Start the server and listen for incoming requests
 app.listen(PORT, () => {

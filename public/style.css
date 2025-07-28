@@ -67,7 +67,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 15rem;
+    min-height: 20rem;
     min-width: 20rem;
     background-color: var(--secondary-text);
     border-radius: 8%;
@@ -135,6 +135,29 @@ main{
 .btn i{
     background-color: transparent;
     font-size: 1.2rem;
+}
+
+.card>form{
+    margin-top: 2rem;
+    background-color: var(--secondary-text);
+    display: flex;
+    flex-direction: column;
+}
+.card *{
+    background-color: var(--secondary-text);
+}
+
+.card>form>.form-entry{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+}
+
+.card>form>.form-entry>label{
+    font-size: large;
+}
+.card>form>.form-entry>input,textarea{
+    font-size: large;
 }
 
 /* NEW TASKS */
