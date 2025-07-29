@@ -14,6 +14,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname,'public','index.html')); 
 });
 
+app.get('/tasks',(req,res)=>{
+    res.json({tasks:tasks})
+});
+
 
 const addRoutes=require('./Routes/add.js');
 app.use('/add',addRoutes);

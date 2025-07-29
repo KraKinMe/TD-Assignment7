@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const dtElement=document.getElementById('dtno');
     const tasksContainer=document.querySelector('.tottasks');
 
-    const tasksJsonUrl='./data/tasks.json';
+    const tasksJsonUrl='/tasks';
 
     function fetchAndRenderTasks(){
         fetch(tasksJsonUrl)
