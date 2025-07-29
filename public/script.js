@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded',()=>{
                 return res.json();
             })
             .then(data=>{
-                const tasks=data.tasks;
+                let tasks=data.tasks; // Changed to 'let' to allow reassigning for filtering
                 tasksContainer.innerHTML='';
                 ttElement.textContent=tasks.length;
                 dtElement.textContent=tasks.filter(task=>task.done).length;
-    
+
                 if(tasks.length===0){
                     tasksContainer.innerHTML='<p>No tasks to display.</p>'
                 }
@@ -35,33 +35,33 @@ document.addEventListener('DOMContentLoaded',()=>{
                             taskElement.classList.add('task-done');
                         }
                         taskElement.dataset.taskId=task.id;
-    
+
                         const taskIDDiv=document.createElement('div');
                         taskIDDiv.classList.add('task-id');
                         taskIDDiv.textContent=task.id;
-    
+
                         const taskContentDiv=document.createElement('div');
                         taskContentDiv.classList.add('task-content');
-    
+
                         const title=document.createElement('h4');
                         title.textContent=task.taskTitle;
                         title.classList.add('task-title');
-    
+
                         const desc = document.createElement('p');
                         desc.textContent = task.taskDesc;
                         desc.classList.add('task-description');
-    
+
                         taskContentDiv.appendChild(title);
                         taskContentDiv.appendChild(desc);
-    
+
                         const taskActionsDiv = document.createElement('div');
                         taskActionsDiv.classList.add('task-actions');
-    
+
                         const taskStatusCheckbox = document.createElement('input');
                         taskStatusCheckbox.type = 'checkbox';
                         taskStatusCheckbox.checked = task.done;
                         taskStatusCheckbox.classList.add('task-checkbox');
-    
+
                         taskStatusCheckbox.addEventListener('change',(event)=>{
                             if(event.target.checked){
                                 taskElement.classList.add('task-done');
@@ -71,29 +71,41 @@ document.addEventListener('DOMContentLoaded',()=>{
                                 taskElement.classList.remove('task-done');
                                 task.done=false;
                             }
-    
-                            doneTasksElement.textContent=tasks.filter(t=>t.done).length;
+
+                            // Corrected reference here
+                            dtElement.textContent=tasks.filter(t=>t.done).length;
                         });
-    
+
                         const deleteButton = document.createElement('button');
                         deleteButton.classList.add('delete-btn');
                         deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
-    
+
                         deleteButton.addEventListener('click', () => {
                             taskElement.remove(); // Remove task from DOM
-    
-                                // Update local tasks array (optional, for immediate counts update)
-                            tasks = tasks.filter(t => t.id !== task.id);
-                            totalTasksElement.textContent = tasks.length;
+
+                            // Update local tasks array (optional, for immediate counts update)
+                            tasks = tasks.filter(t => t.id !== task.id); // Reassigning tasks array
+                            
+                            // Corrected references here
+                            ttElement.textContent = tasks.length;
                             const currentDoneTasksCount = tasks.filter(t => t.done).length;
-                            doneTasksElement.textContent = currentDoneTasksCount;
+                            dtElement.textContent = currentDoneTasksCount;
                                 
                             if (tasks.length === 0) {
                                 tasksContainer.innerHTML = '<p>No tasks to display.</p>';
                             }
-    
-                                
                         });
+                        // Append child elements to taskActionsDiv (missing in your provided code, but crucial for functionality)
+                        taskActionsDiv.appendChild(taskStatusCheckbox);
+                        taskActionsDiv.appendChild(deleteButton);
+                        
+                        // Append all parts to the taskElement
+                        taskElement.appendChild(taskIDDiv);
+                        taskElement.appendChild(taskContentDiv);
+                        taskElement.appendChild(taskActionsDiv);
+
+                        // Append the completed taskElement to the container
+                        tasksContainer.appendChild(taskElement);
                     })
                 }
             })
