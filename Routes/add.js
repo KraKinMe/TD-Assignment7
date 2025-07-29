@@ -8,4 +8,7 @@ route.get('/',(req,res)=>{
     res.sendFile(path.join(__dirname,'..','public','add.html'));
 })
 
+// route.post('/',(req,res)=>{
+
+// });
 module.exports=route;
