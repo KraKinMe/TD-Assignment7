@@ -20,15 +20,9 @@
     },
     {
       "id": "4",
-      "taskTitle": "Design Database Schema",
-      "taskDesc": "Create the ER diagram and define database tables.",
+      "taskTitle": "Complete this game",
+      "taskDesc": "What Game??",
       "done": false
-    },
-    {
-      "id": "5",
-      "taskTitle": "Write Unit Tests for API",
-      "taskDesc": "Develop test cases for all backend API endpoints.",
-      "done": true
     }
   ]
 }

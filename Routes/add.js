@@ -58,7 +58,9 @@ route.post('/', upload.none(), (req, res) => {
             return res.status(400).send('Task title and description are required.');
         }
 
-        const newId = tasks.length > 0 ? Math.max(...tasks.map(task => task.id)) + 1 : 1;
+        const newId = tasks.length > 0 
+              ? (Math.max(...tasks.map(task => parseInt(task.id))) + 1).toString() 
+              : "1";
 
         const newTask = {
             id: newId,

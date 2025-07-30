@@ -44,10 +44,8 @@ router.delete('/:id',(req,res)=>{
 
         const Did=req.params.id;
 
-        let newTasks;
-
         tasksData.tasks=tasks.filter((task)=>{
-            return task.id!=Did;
+            return task.id!==Did;
         });
 
         if(tasksData.tasks.length===oldLen){
@@ -60,7 +58,7 @@ router.delete('/:id',(req,res)=>{
                 return res.status(500).json({ error: 'Error saving updated tasks.' });
             }
 
-            console.log(`INFO: Task with ID ${taskIdToDelete} deleted successfully.`);
+            console.log(`INFO: Task with ID ${Did} deleted successfully.`);
             res.status(200).json({ message: 'Task deleted successfully.' });
         })
     })
