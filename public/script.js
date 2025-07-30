@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                     tasksContainer.innerHTML='<p>No tasks to display.</p>'
                 }
                 else{
+                    let newID=1;
                     tasks.forEach(task=>{
                         const taskElement=document.createElement('div');
                         taskElement.classList.add('task');
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
                         const taskIDDiv=document.createElement('div');
                         taskIDDiv.classList.add('task-id');
-                        taskIDDiv.textContent=task.id;
+                        taskIDDiv.textContent=newID;
 
                         const taskContentDiv=document.createElement('div');
                         taskContentDiv.classList.add('task-content');
