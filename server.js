@@ -1,9 +1,13 @@
 const express = require('express');
 const path=require('path');
+const fs=require('fs');
+
 const app = express();
 
 const PORT = 3000; // Define your port
-let {tasks}=require('./data/tasks.json');
+// let {tasks}=require('./data/tasks.json');
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 
 app.use(express.static(path.join(__dirname,'public')));
 
@@ -14,8 +18,23 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname,'public','index.html')); 
 });
 
-app.get('/tasks',(req,res)=>{
-    res.json({tasks:tasks})
+app.get('/tasks', (req, res) => {
+    const tasksFilePath = path.join(__dirname, 'data', 'tasks.json');
+
+    fs.readFile(tasksFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading tasks.json for /tasks endpoint:', err);
+            // If the file doesn't exist or is unreadable, send an empty array or an error
+            return res.status(500).json({ tasks: [], error: 'Failed to load tasks.' });
+        }
+        try {
+            const tasksData = JSON.parse(data);
+            res.json({ tasks: tasksData.tasks });
+        } catch (parseError) {
+            console.error('Error parsing tasks.json for /tasks endpoint:', parseError);
+            return res.status(500).json({ tasks: [], error: 'Failed to parse tasks data.' });
+        }
+    });
 });
 
 
