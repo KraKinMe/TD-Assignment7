@@ -39,7 +39,11 @@ document.addEventListener('DOMContentLoaded',()=>{
 
                         const taskIDDiv=document.createElement('div');
                         taskIDDiv.classList.add('task-id');
+
                         taskIDDiv.textContent=newID;
+                        newID=newID+1;
+                        
+                        // taskIDDiv.textContent=task.id;
 
                         const taskContentDiv=document.createElement('div');
                         taskContentDiv.classList.add('task-content');

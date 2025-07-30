@@ -1,46 +1,34 @@
 {
   "tasks": [
     {
-      "id": 1,
+      "id": "1",
       "taskTitle": "Complete Project Proposal",
       "taskDesc": "Write and finalize the project proposal document.",
       "done": false
     },
     {
-      "id": 2,
+      "id": "2",
       "taskTitle": "Set up Development Environment",
       "taskDesc": "Install all necessary software and tools.",
       "done": true
     },
     {
-      "id": 3,
+      "id": "3",
       "taskTitle": "Develop User Authentication Module",
       "taskDesc": "Implement user signup, login, and session management.",
       "done": false
     },
     {
-      "id": 4,
+      "id": "4",
       "taskTitle": "Design Database Schema",
       "taskDesc": "Create the ER diagram and define database tables.",
       "done": false
     },
     {
-      "id": 5,
+      "id": "5",
       "taskTitle": "Write Unit Tests for API",
       "taskDesc": "Develop test cases for all backend API endpoints.",
       "done": true
-    },
-    {
-      "id": 6,
-      "taskTitle": "aa",
-      "taskDesc": "asc",
-      "done": false
-    },
-    {
-      "id": 7,
-      "taskTitle": "ab",
-      "taskDesc": "xa",
-      "done": false
     }
   ]
 }
