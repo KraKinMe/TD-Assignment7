@@ -34,7 +34,7 @@ router.delete('/:id',(req,res)=>{
             // I will get tasks as JSON
         }
         catch(parseError){
-            console.error('ERROR: Error parsing tasks.json for POST:', parseError);
+            console.error('ERROR: Error parsing tasks.json for delete:', parseError);
             return res.status(500).send('Error parsing tasks data.');
         }
 
@@ -64,5 +64,49 @@ router.delete('/:id',(req,res)=>{
     })
 });
 
+router.patch('/:id',(req,res)=>{
+    fs.readFile(tasksFilePath,'utf-8',(err,data)=>{
+        if(err){
+            return res.status(500).json({ tasks: [], error: 'Failed to get tasks' });
+        }
+        let tasksData;
+        try{
+            tasksData=JSON.parse(data);
+            // I will get tasks as JSON
+        }
+        catch(parseError){
+            console.error('ERROR: Error parsing tasks.json for patch:', parseError);
+            return res.status(500).send('Error parsing tasks data.');
+        }
+
+        let tasks=tasksData.tasks;
+
+        const Did=req.params.id;
+        const newStatus=req.body.done;
+
+        let changeOccured=false;
+
+        tasks.forEach((each)=>{
+            if(each.id===Did){
+                each.done=newStatus;
+                changeOccured=true;
+            }
+        });
+
+        if(!changeOccured){
+            console.warn(`WARNING: Task with ID ${taskId} not found for PATCH update.`);
+            return res.status(404).json({ message: 'Task not found.' });
+        }
+
+        fs.writeFile(tasksFilePath,JSON.stringify(tasksData,null,2),'utf8',(writeErr)=>{
+            if(writeErr){
+                console.error('ERROR: Error writing tasks.json after PATCH:', writeErr);
+                return res.status(500).json({ error: 'Error saving updated task status.' });
+            }
+            console.log(`INFO: Task with ID ${taskId} updated successfully.`);
+            res.status(200).json({ message: 'Task status updated successfully.' });
+        });
+    })
+});
 
 module.exports=router;

@@ -68,14 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         try {
                             // Send PUT/PATCH request to update task status
-                            const updateRes = await fetch(`/tasks/update-status/${taskId}`, { // Example endpoint
-                                method: 'PATCH', // Or PUT, depending on your server API design
+                            const updateRes = await fetch(`/tasks/${taskId}`, {
+                                method: 'PATCH',
                                 headers: {
                                     'Content-Type': 'application/json'
                                 },
                                 body: JSON.stringify({ done: isDone })
                             });
-
+                            
                             if (!updateRes.ok) {
                                 throw new Error(`Failed to update task status: ${updateRes.status}`);
                             }
@@ -89,6 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                 task.done = false; // Update local task object
                             }
                             dtElement.textContent = tasks.filter(t => t.done).length;
+
+                            fetchAndRenderTasks();
 
                         } catch (error) {
                             console.error('Error updating task status:', error);
@@ -125,6 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             if (tasks.length === 0) {
                                 tasksContainer.innerHTML = '<p>No tasks to display.</p>';
                             }
+
+                            fetchAndRenderTasks();
 
                         } catch (error) {
                             console.error('Error deleting task:', error);
