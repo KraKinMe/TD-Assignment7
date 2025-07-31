@@ -94,7 +94,7 @@ router.patch('/:id',(req,res)=>{
         });
 
         if(!changeOccured){
-            console.warn(`WARNING: Task with ID ${taskId} not found for PATCH update.`);
+            console.warn(`WARNING: Task with ID ${Did} not found for PATCH update.`);
             return res.status(404).json({ message: 'Task not found.' });
         }
 
@@ -103,7 +103,7 @@ router.patch('/:id',(req,res)=>{
                 console.error('ERROR: Error writing tasks.json after PATCH:', writeErr);
                 return res.status(500).json({ error: 'Error saving updated task status.' });
             }
-            console.log(`INFO: Task with ID ${taskId} updated successfully.`);
+            console.log(`INFO: Task with ID ${Did} updated successfully.`);
             res.status(200).json({ message: 'Task status updated successfully.' });
         });
     })

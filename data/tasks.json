@@ -2,33 +2,33 @@
   "tasks": [
     {
       "id": "1",
-      "taskTitle": "Complete Project Proposal",
-      "taskDesc": "Write and finalize the project proposal document.",
-      "done": false
+      "taskTitle": "Assignment 1",
+      "taskDesc": "TuteDude Assignment 1\r\n",
+      "done": true
     },
     {
       "id": "2",
-      "taskTitle": "Set up Development Environment",
-      "taskDesc": "Install all necessary software and tools.",
-      "done": true
-    },
-    {
-      "id": "3",
-      "taskTitle": "Develop User Authentication Module",
-      "taskDesc": "Implement user signup, login, and session management.",
+      "taskTitle": "MERN Stack",
+      "taskDesc": "Complete all videos",
       "done": false
     },
     {
-      "id": "7",
-      "taskTitle": "Complete this game",
-      "taskDesc": "asf",
+      "id": "3",
+      "taskTitle": "JS",
+      "taskDesc": "Work on JS",
       "done": true
     },
     {
-      "id": "8",
-      "taskTitle": "This is the latest TASK",
-      "taskDesc": "DESCRIPTION",
-      "done": true
+      "id": "4",
+      "taskTitle": "Complete React",
+      "taskDesc": "React is tough so give more time",
+      "done": false
+    },
+    {
+      "id": "5",
+      "taskTitle": "MAANG",
+      "taskDesc": "Best job leni hai brotherrr\r\n",
+      "done": false
     }
   ]
 }
